@@ -10,23 +10,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script>
+        let renderer, camera, controls, scene, width = window.innerWidth, height = window.innerHeight
 
-        let scene = new THREE.Scene()
+        init()
 
-        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
-
-        let renderer = new THREE.WebGLRenderer({antialias: true})
-        renderer.setClearColor('#212121')
-        renderer.setSize(window.innerWidth, window.innerHeight)
-
-        document.body.appendChild(renderer.domElement)
-
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight)
-            camera.aspect = window.innerWidth / window.innerHeight
-
-            camera.updateProjectMatrix()
-        })
+        function init(){
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            })
+            renderer.setClearColor(0x111111)
+            renderer.setPixelRatio(window.devicePixelRatio)
+            renderer.setSize(width, height)
+            document.body.appendChild( renderer.domElement )
+        }
+    
     </script>
+    <canvas id="canvas"></canvas>
 </body>
 </html>
