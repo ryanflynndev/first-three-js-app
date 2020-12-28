@@ -18,13 +18,25 @@
             renderer = new THREE.WebGLRenderer({
                 antialias: true
             })
+            //Sets background color
             renderer.setClearColor(0x111111)
+            //Makes window resizing not affect anything
             renderer.setPixelRatio(window.devicePixelRatio)
             renderer.setSize(width, height)
+            //appends renderer
             document.body.appendChild( renderer.domElement )
+
+            //CAMERA
+            camera = new THREE.PerspectiveCamera(
+                70,
+                width / height,
+                1,
+                1000
+            )
+            //Setting the camera back a bit
+            
         }
     
     </script>
-    <canvas id="canvas"></canvas>
 </body>
 </html>
