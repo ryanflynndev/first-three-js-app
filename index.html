@@ -20,7 +20,6 @@
             })
             //Sets background color
             renderer.setClearColor(0x111111)
-            //Makes window resizing not affect anything
             renderer.setPixelRatio(window.devicePixelRatio)
             renderer.setSize(width, height)
             //appends renderer
@@ -33,8 +32,26 @@
                 1,
                 1000
             )
-            //Setting the camera back a bit
+            //Setting the camera back a bit, z is where it is backwards and forwards in the space
+            camera.position.z = 100
+
+            //CONTROLS
+            controls = new THREE.TrackBallControls(camera)
+            //controls.addEventListener('change',  render)
+
+            //SCENE
+            scene = new THREE.Scene()
+
+            //LIGHTS: You genrally want an ambient light
+            const light1 = new THREE.AmbientLight(0xFFFFFF, 0.5),
+                light2 = new THREE.DirectionalLight(0xFFFFFF)
             
+            light2.position.set(1,1,1)
+
+            scene.add(light1)
+            scene.add(light2)
+
+            //
         }
     
     </script>
